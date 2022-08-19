@@ -11,6 +11,7 @@ class NotasController extends Controller
     public function index(Request $request)
     {
         $mY = $request->month;
+        \Log::info($mY);
         $mes_ano = date('m/Y', strtotime($mY));
 
         if ($mY !== null) 
@@ -27,7 +28,7 @@ class NotasController extends Controller
             ->orderBy('mes_ano', 'DESC')
             ->get();
         }
-        \Log::info(floatval($notas[0]->valor));
+
         return view('notas',compact('notas'));
     }
 
