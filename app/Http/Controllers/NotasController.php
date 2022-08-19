@@ -27,6 +27,7 @@ class NotasController extends Controller
             ->orderBy('mes_ano', 'DESC')
             ->get();
         }
+        \Log::info(floatval($notas[0]->valor));
         return view('notas',compact('notas'));
     }
 

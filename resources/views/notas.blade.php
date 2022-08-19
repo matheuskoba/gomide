@@ -28,8 +28,8 @@
         </div>
         <div class="card-body">
           <div class="card-header row">
-            <div class="">
-              <label>Digite a pesquisa: </label>
+            <div class="d-flex mb-2">
+              <label for="pesquisa">Digite a pesquisa: </label>
             </div>
             <div class="col-md-5">
               <form action="{{ route('search') }}" method="GET">
@@ -42,13 +42,14 @@
               </form>
             </div>
           </div>
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link nfeEnt active" id="nfeEnt-tab" data-toggle="tab" href="#nfeEnt" role="tab" aria-controls="nfeEnt" aria-selected="true"><i class="fa fa-address-card" aria-hidden="true"></i>Notas </a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="nfeEnt" role="tabpanel" aria-labelledby="nfeEnt-tab">Notas
+                <div class="tab-pane fade show active mt-3" id="nfeEnt" role="tabpanel" aria-labelledby="nfeEnt-tab">
+                  <p style="font-weight: bold; font-size: 25px;" >Notas</p>
                   <table id="tableEnt" style="width:100%" class="col-md-12 table-striped">
                     <thead>
                       @if ( count((array)$notas) > 0)
