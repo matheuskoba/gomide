@@ -81,7 +81,6 @@
                                 <button class="btn btn-dark btn-sm btnCopiar" onclick="copiarTexto('{{$nfe->id}}');"><i class="fa fa-key"></i>
                                   Chave NFe
                                 </button>
-                                {{-- @if ($nfe->xml != null)
                                   <a href="#" target="_blank"><button type="button" class="btn btn-dark btn-sm statusAction actionView" onclick="setTimeout(() => {
                                     window.location.reload();}, 500);"><i class="fa-solid fa-file-pdf"></i>
                                       Visualizar
@@ -90,7 +89,6 @@
                                   <button type="button" class="btn btn-dark btn-sm statusAction  actionDownload"><i class="fa fa-download"></i>
                                     Download
                                   </button></a>
-                                @endif --}}
                                 <button type="button" class="btn btn-dark  btn-sm statusAction actionSendEmail" onclick="getId(this,'{{$nfe->id}}');" data-toggle="modal" data-target="#senMail{{$nfe->id}}">
                                   <i class="fa-regular fa-paper-plane-top"></i>
                                   Enviar e-mail
@@ -153,6 +151,8 @@
     </center>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/92e90f8568.js" crossorigin="anonymous"></script>
     <script>
       document.getElementById('body').onkeyup = function(e) {
         if (e.keyCode === 13) {
