@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', 'sans-serif';
+}
+body{
+    padding: 20px;
+}
+.container{
+    width: 100%;
+}
+.card{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    padding: 20px;
+}
+.search-date input{
+    border: solid 1px rgb(168, 168, 168);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-date button{
+    border: solid 1px rgb(168, 168, 168);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 42px;
+    margin-left: 8px;
+}
+.search-date button:hover{
+    background-color: blue;
+    cursor: pointer;
+    color: white;
+}
+.select select{
+    border: solid 1px rgb(168, 168, 168);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    outline: none;
+    width: 5rem;
+}
+.select select:hover{
+    cursor: pointer;
+    background-color: blue;
+}
+.search{
+    border: solid 1px rgb(168, 168, 168);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+}
+.search input{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.search i{
+    color: rgb(168, 168, 168);
+}
+.table-section{
+    overflow: auto;
+    width: 100%;
+    overflow-x: auto;
+}
+.button-area{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: rgb(233, 233, 233);
+}
+.button-area button{
+    border: solid 1px rgb(168, 168, 168);
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+.button-area button:hover{
+    cursor: pointer;
+    background-color: blue;
+}
+.button-area button i{
+    margin-right: 5px;
+}
+table{
+    width: 100%;
+    table-layout: fixed;
+    min-width: 1000px;
+    border-collapse: collapse;
+}
+thead th, tfoot th{
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    font-size: 15px;
+    color: #888888;
+}
+th, td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    text-align: center;
+}
+tbody tr td input{
+    cursor: pointer;
+}
+.marginButton{
+    margin-right: 20px;
+}
+.error{
+    color: red;
+}
