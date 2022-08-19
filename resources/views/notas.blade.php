@@ -7,11 +7,11 @@
     <title>Teste Gomide</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-      
+    <style>.paddingTd{padding-right: 30px;}.marginButton{margin-right: 20px;}</style>
   </head>
   <body class="bg-secondary">
     <center>
-      <div class="card col-md-7 mt-3">
+      <div class="card col-7 mt-3">
         <div class="card-header">
           <form action="{{ route('notas') }}" method="get" class="col-md-12" style="height: 41px;display: flex;flex-direction: row;" >
             @csrf
@@ -48,7 +48,7 @@
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active mt-3" id="nfeEnt" role="tabpanel" aria-labelledby="nfeEnt-tab">
+                <div class="tab-pane fade show active mt-3" style="width: 45em; overflow-x: auto; white-space: nowrap;" id="nfeEnt" role="tabpanel" aria-labelledby="nfeEnt-tab">
                   <p style="font-weight: bold; font-size: 25px;" >Notas</p>
                   <table id="tableEnt" style="width:100%" class="col-md-12 table-striped">
                     <thead>
@@ -73,71 +73,70 @@
                           <td>
                             
                           </td>
-                          <td>
-                            <div class="actions" style="height: 44px;padding: 3px 5px; 
-                            position:absolute;display:none; margin-top:20px">
-                              <div class="text-center">
-                                <input type="text" name="texto" class="texto" id="texto'{{$nfe->id}}'" style="position:relative; top:-800px;" readonly value="testew" />
-                                <button class="btn btn-dark btn-sm btnCopiar" onclick="copiarTexto('{{$nfe->id}}');"><i class="fa fa-key"></i>
+                          <td style="width: 60%;">
+                            <div class="actions">
+                              <div class="text-center" style="display: flex; align-items: center; 
+                              justify-content: center; margin-right: 20px;">
+                                <button class="btn btn-dark btn-sm btnCopiar marginButton"  onclick="copiarTexto('{{$nfe->id}}');"><i class="fa fa-key"></i>
                                   Chave NFe
                                 </button>
-                                  <a href="#" target="_blank"><button type="button" class="btn btn-dark btn-sm statusAction actionView" onclick="setTimeout(() => {
+                                  <a href="#" target="_blank"><button type="button" class="btn btn-dark btn-sm statusAction actionView marginButton" onclick="setTimeout(() => {
                                     window.location.reload();}, 500);"><i class="fa-solid fa-file-pdf"></i>
                                       Visualizar
                                     </button></a>
                                   <a href="#">
-                                  <button type="button" class="btn btn-dark btn-sm statusAction  actionDownload"><i class="fa fa-download"></i>
+                                  <button type="button" class="btn btn-dark btn-sm statusAction marginButton actionDownload"><i class="fa fa-download"></i>
                                     Download
                                   </button></a>
-                                <button type="button" class="btn btn-dark  btn-sm statusAction actionSendEmail" onclick="getId(this,'{{$nfe->id}}');" data-toggle="modal" data-target="#senMail{{$nfe->id}}">
+                                <button type="button" class="btn btn-dark  btn-sm statusAction actionSendEmail marginButton" onclick="getId(this,'{{$nfe->id}}');" data-toggle="modal" data-target="#senMail{{$nfe->id}}">
                                   <i class="fa-regular fa-paper-plane-top"></i>
                                   Enviar e-mail
                                 </button>
                                 <a href="#">
-                                  <button type="button" class="btn btn-dark btn-sm statusAction actionManifest"><i class="fa fa-gavel"></i>
+                                  <button type="button" class="btn btn-dark btn-sm statusAction actionManifest marginButton"><i class="fa fa-gavel"></i>
                                     Manifestar
                                   </button>
                                 </a>
                                 {{-- @if ($nfe->manifesto != null)
-                                  <button type="button" class="btn btn-dark btn-sm statusAction actionEventNote" data-toggle="modal" data-target="#modalEventos{{$nfe->id}}"><i class="fa fa-exchange"></i>
+                                  <button type="button" class="btn btn-dark btn-sm statusAction actionEventNote marginButton" data-toggle="modal" data-target="#modalEventos{{$nfe->id}}"><i class="fa fa-exchange"></i>
                                     Eventos da nota
                                   </button>
                                 @endif --}}
                                 <!---->
                                 <a href="#">
-                                  <button type="button" class="btn btn-dark btn-sm" onclick="getId(this,'{{$nfe->id}}');">
+                                  <button type="button" class="btn btn-dark btn-sm marginButton" onclick="getId(this,'{{$nfe->id}}');">
                                     <i class="fa fa-refresh"></i> Status
                                   </button>
                                 </a>
-                                <button type="button" class="btn btn-dark btn-sm " data-toggle="modal" data-target="#modalProtocolo{{$nfe->id}}"><i class="fa fa-list"></i>
+                                <button type="button" class="btn btn-dark btn-sm marginButton" data-toggle="modal" data-target="#modalProtocolo{{$nfe->id}}"><i class="fa fa-list"></i>
                                   Protocolo
                                 </button>
                               </div>
                             </div>
                           </td>
-                          <td> {{ $nfe->emitente }}</td>
-                          <td>{{ $nfe->serie ?? '1' }}</td>
-                          <td>{{ $nfe->UF }}</td>
-                          <td>{{ $nfe->n }}</td>
-                          <td><b>{{ number_format(floatval($nfe->valor),2,',','.') }}</b></td>
-                          <td>{{ $nfe->emissao }}</td>
+                          <td class="paddingTd"> {{ $nfe->emitente }}</td>
+                          <td class="paddingTd">{{ $nfe->serie ?? '1' }}</td>
+                          <td class="paddingTd">{{ $nfe->UF }}</td>
+                          <td class="paddingTd">{{ $nfe->n }}</td>
+                          <td class="paddingTd"><b>{{ number_format(floatval($nfe->valor),2,',','.') }}</b></td>
+                          <td class="paddingTd">{{ $nfe->emissao }}</td>
                         </tr>
                       @endforeach
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>#</th>
-                        <th width="1"></th>
-                        <th>Emitente</th>
-                        <th>Série</th>
-                        <th>UF</th>
-                        <th>Nº</th>
-                        <th>Valor</th>
-                        <th>Emissão</th>
-                        <th>Status</th>
-                        <th>Manifesto</th>
-                        <th>Exportado</th>
-                        <th>Recolhido</th>
+                        <th class="paddingTd">#</th>
+                        <th width="1" class="paddingTd"></th>
+                        <th class="paddingTd">Emitente</th>
+                        <th class="paddingTd">Série</th>
+                        <th class="paddingTd">UF</th>
+                        <th class="paddingTd">Nº</th>
+                        <th class="paddingTd">Valor</th>
+                        <th class="paddingTd">Emissão</th>
+                        <th class="paddingTd">Status</th>
+                        <th class="paddingTd">Manifesto</th>
+                        <th class="paddingTd">Exportado</th>
+                        <th class="paddingTd">Recolhido</th>
                       </tr>
                     </tfoot>
                   </table>
