@@ -9,6 +9,9 @@
 body{
     padding: 20px;
 }
+input[type=button]:hover{
+    cursor: pointer;
+}
 .container{
     width: 100%;
 }
