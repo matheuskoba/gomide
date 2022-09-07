@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teste Gomide</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/notas-style.css') }}" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
   </head>
   <body>
     <center>
@@ -38,7 +39,7 @@
           </div>
           <div class="card-body">
             <div class="button-area">
-              <button type="button" onclick="copiarTexto('');"><i class="fa fa-key"></i>Chave NFe</button>
+              <button type="button" id="aplica" onclick="copiarTexto('');" disabled><i class="fa fa-key"></i>Chave NFe</button>
               <button type="button" onclick="setTimeout(() => {window.location.reload();}, 500);"><i class="fa-solid fa-file-pdf"></i>Visualizar</button>
               <button type="button"><i class="fa fa-download"></i>Download</button>
               <button type="button" onclick="" data-toggle="modal" data-target="#senMail{{''}}"><i class="fa-solid fa-paper-plane"></i>Enviar e-mail</button>
@@ -52,7 +53,7 @@
                 <thead>
                   @if ( count((array)$notas) > 0)
                   <tr>
-                    <th>#</th>
+                    <th><input type="checkbox" id="select-all" name="toggle"/></th>
                     <th>Emitente</th>
                     <th>Série</th>
                     <th>UF</th>
@@ -71,7 +72,7 @@
                 <tbody>
                   @foreach($notas as $nfe)
                     <tr>
-                      <td><input type="checkbox"/></td>
+                      <td><input type="checkbox" name="toggle"/></td>
                       <td>{{ $nfe->emitente }}</td>
                       <td>{{ $nfe->serie ?? '1' }}</td>
                       <td>{{ $nfe->UF }}</td>
@@ -119,6 +120,39 @@
           document.getElementById('pesquisa').submit();
         }
         return true;
+      }
+    </script>
+    {{-- check all --}}
+    <script>
+      // $(document).ready(function(){
+      //   $('.check:button').toggle(function(){
+      //       $('input:checkbox').attr('checked','checked');
+      //       $(this).val('uncheck all')
+      //   },function(){
+      //       $('input:checkbox').removeAttr('checked');
+      //       $(this).val('check all');        
+      //   })
+      // });
+      document.getElementById('select-all').onclick = function() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var checkbox of checkboxes) {
+          checkbox.checked = this.checked;
+        }
+      }
+    </script>
+    {{-- Libera o botao se um ou mais checkbox estiver marcado js puro --}}
+    <script>
+      var checa = document.getElementsByName("toggle");
+      var numElementos = checa.length;
+      var bt = document.getElementById("aplica");
+      for(var x=0; x<numElementos; x++){
+        checa[x].onclick = function(){
+            // "input[name='toggle']:checked" conta os checkbox checados
+            var cont = document.querySelectorAll("input[name='toggle']:checked").length;
+            // ternário que verifica se há algum checado.
+            // se não há, retorna 0 (false), logo desabilita o botão
+            bt.disabled = cont ? false : true;
+        }
       }
     </script>
   </body>
